@@ -21,7 +21,7 @@ import io from "socket.io-client";
 import animationData1 from "../animations/typing1.json";
 import Lottie from "lottie-react";
 
-const ENDPOINT = "https://sweechat.herokuapp.com";
+const ENDPOINT = "https://weeechat-sk.herokuapp.com";
 
 var socket, selectedChatCompare;
 

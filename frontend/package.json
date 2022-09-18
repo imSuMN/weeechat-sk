@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://sweechat.herokuapp.com/",
+  "proxy": "https://weeechat-sk.herokuapp.com",
   "dependencies": {
     "@chakra-ui/icons": "^2.0.9",
     "@chakra-ui/react": "^2.3.1",

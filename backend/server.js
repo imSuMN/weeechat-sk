@@ -53,7 +53,7 @@ const server = app.listen(
 const io = require("socket.io")(server, {
   pingTimeout: 120000,
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://isumanweechat.netlify.app",
     // credentials: true,
   },
 });
@@ -67,7 +67,6 @@ io.on("connection", (socket) => {
 
   socket.on("join chat", (room) => {
     socket.join(room);
-
   });
   socket.on("typing", (room) => socket.in(room).emit("typing"));
   socket.on("stop typing", (room) => socket.in(room).emit("stop typing"));

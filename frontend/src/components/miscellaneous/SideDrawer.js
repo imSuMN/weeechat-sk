@@ -200,6 +200,9 @@ const SideDrawer = () => {
                 placeholder="Search by name or email..."
                 mr={2}
                 value={search}
+                onKeyDown={(event) => {
+                  event.key === "Enter" && handleSearch();
+                }}
                 onChange={(e) => {
                   setSearch(e.target.value);
                 }}
