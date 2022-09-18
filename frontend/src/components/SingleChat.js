@@ -21,7 +21,7 @@ import io from "socket.io-client";
 import animationData1 from "../animations/typing1.json";
 import Lottie from "lottie-react";
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://sweechat.herokuapp.com";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -269,7 +269,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           h="100%"
           flexDirection="column"
         >
-          <Image src="chatHome.svg" alt="Conversation PIC" height="400px" width="400px" />
+          <Image
+            src="chatHome.svg"
+            alt="Conversation PIC"
+            height="400px"
+            width="400px"
+          />
 
           <Text fontSize="3xl" pb={3} fontFamily="Work sans">
             Click on a user to start chatting
