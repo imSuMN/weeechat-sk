@@ -12,7 +12,8 @@ const Chatbox = ({ fetchAgain, setFetchAgain }) => {
       flexDir="column"
       p={3}
       bg="white"
-      opacity={0.6}
+      opacity={0.9}
+      background="transparent"
       borderRadius="lg"
       borderWidth="1px"
       w={{ base: "100%", md: "68%" }}

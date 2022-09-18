@@ -50,7 +50,6 @@ const Login = () => {
         config
       );
 
-      // console.log(JSON.stringify(data));
       toast({
         title: "Login Successful",
         status: "success",
@@ -61,6 +60,7 @@ const Login = () => {
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
       history.push("/chats");
+      
     } catch (error) {
       toast({
         title: "Error Occured!",
@@ -106,24 +106,6 @@ const Login = () => {
           </InputRightElement>
         </InputGroup>
       </FormControl>
-      <div className="flex p-4 mx-0 items-center justify-between">
-        <div className="p-4 flex items-center">
-          <input
-            id="remember_me"
-            name="remember_me"
-            type="checkbox"
-            className="h-4 w-4 bg-blue-500 focus:ring-blue-400 border-gray-300 rounded"
-          />
-          <label for="remember_me" className="ml-2 block text-sm text-gray-800">
-            Remember me
-          </label>
-        </div>
-        <div className="text-sm">
-          <a href="/" className="text-green-400 hover:text-green-500">
-            Forgot your password?
-          </a>
-        </div>
-      </div>
 
       <Button
         borderRadius="20px"

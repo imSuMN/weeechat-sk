@@ -1,6 +1,5 @@
 import { Avatar, Tooltip } from "@chakra-ui/react";
 import { useEffect, useRef } from "react";
-// import ScrollableFeed from "react-scrollable-feed";
 import {
   isLastMessage,
   isSameSender,
@@ -19,17 +18,17 @@ const ScrollableChat = ({ messages }) => {
   }, [messages]);
 
   return (
-    <div>
+    <>
       <AnimatePresence initial={false}>
         {messages &&
           messages.map((m, i) => (
             <motion.div
               style={{ display: "flex" }}
               key={m._id}
-              positionTransition
+              // positiontransition={true}
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, transition: { duration: 0.5 } }}
+              exit={{ opacity: 0, transition: { duration: 0.15 } }}
             >
               {(isSameSender(messages, m, i, user._id) ||
                 isLastMessage(messages, i, user._id)) && (
@@ -53,9 +52,16 @@ const ScrollableChat = ({ messages }) => {
                   backgroundColor: `${
                     m.sender._id === user._id ? "#BEE3F8" : "#B9F5D0"
                   }`,
+
+                  borderRadius: `${
+                    m.sender._id === user._id
+                      ? " 10px 1px 10px 10px"
+                      : "1px 10px 10px 10px"
+                  }`,
+
                   marginLeft: isSameSenderMargin(messages, m, i, user._id),
                   marginTop: isSameUser(messages, m, i, user._id) ? 3 : 10,
-                  borderRadius: "20px",
+
                   padding: "5px 15px",
                   maxWidth: "75%",
                 }}
@@ -64,9 +70,9 @@ const ScrollableChat = ({ messages }) => {
               </span>
             </motion.div>
           ))}
-        <div ref={messageEndRef} />
       </AnimatePresence>
-    </div>
+      <div ref={messageEndRef} />
+    </>
   );
 };
 

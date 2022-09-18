@@ -124,24 +124,29 @@ const SideDrawer = () => {
         bg="white"
         p="5px 10px 5px 10px"
         borderWidth="5px"
-        z-10
+        zIndex={10}
       >
         <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
           <Button variant="ghost" onClick={onOpen}>
-            <i class="fas fa-search"></i>
+            <i className="fas fa-search"></i>
             <Text display={{ base: "none", md: "flex" }} px="4">
               Search User
             </Text>
           </Button>
         </Tooltip>
-        <Text fontSize="2xl" fontFamily="Work Sans">
+        <Text
+          fontSize="2xl"
+          fontWeight="bold"
+          fontFamily="Work Sans"
+          color="limegreen"
+        >
           WeeChat
         </Text>
         <div>
           <Menu>
-            <MenuButton p={1} position="relative" mr={5} >
+            <MenuButton p={1} position="relative" mr={5}>
               <BellIcon fontSize="2xl" m={1} />
-              <div class="inline-flex absolute -top-1 -right-1 justify-center items-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full border-1 ">
+              <div className="inline-flex absolute -top-1 -right-1 justify-center items-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full border-1 ">
                 {notification.length}
               </div>
             </MenuButton>
@@ -191,6 +196,7 @@ const SideDrawer = () => {
           <DrawerBody>
             <Box display="flex" pb={2}>
               <Input
+                focusBorderColor="lime"
                 placeholder="Search by name or email..."
                 mr={2}
                 value={search}

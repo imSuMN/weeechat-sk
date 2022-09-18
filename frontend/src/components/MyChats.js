@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { ChatState } from "../Context/ChatProvider";
-import { Box, Button, Stack, Text, useToast } from "@chakra-ui/react";
+import {
+  Avatar,
+  Box,
+  Button,
+  Divider,
+  Stack,
+  Text,
+  useToast,
+} from "@chakra-ui/react";
 import axios from "axios";
 import { AddIcon } from "@chakra-ui/icons";
 import ChatLoading from "./ChatLoading";
-import { getSender } from "../config/ChatLogics";
+import { getSender, getSenderPic } from "../config/ChatLogics";
 import GroupChatModal from "./miscellaneous/GroupChatModal";
 
 const MyChats = ({ fetchAgain }) => {
@@ -23,7 +31,7 @@ const MyChats = ({ fetchAgain }) => {
       };
 
       const { data } = await axios.get("/api/chat", config);
-      // console.log(data);
+
       setChats(data);
     } catch (error) {
       toast({
@@ -40,6 +48,7 @@ const MyChats = ({ fetchAgain }) => {
   useEffect(() => {
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
     fetchChats();
+    // eslint-disable-next-line
   }, [fetchAgain]);
 
   return (
@@ -48,6 +57,7 @@ const MyChats = ({ fetchAgain }) => {
       flexDir="column"
       alignItems="center"
       p={3}
+      opacity={0.9}
       bg="white"
       borderRadius="lg"
       borderWidth="1px"
@@ -56,7 +66,7 @@ const MyChats = ({ fetchAgain }) => {
       <Box
         pb={3}
         px={3}
-        fontSize={{ base: "28px", md: "30px" }}
+        fontSize={{ base: "28px", md: "18px", lg: "24px" }}
         fontFamily="Work sans"
         display="flex"
         w="100%"
@@ -67,7 +77,7 @@ const MyChats = ({ fetchAgain }) => {
         <GroupChatModal>
           <Button
             display="flex"
-            fontSize={{ base: "17px", md: "10px", lg: "17px" }}
+            fontSize={{ base: "17px", md: "13px", lg: "17px" }}
             rightIcon={<AddIcon />}
           >
             New Group Chat
@@ -76,35 +86,52 @@ const MyChats = ({ fetchAgain }) => {
       </Box>
       <Box
         display="flex"
-        p={3}
         flexDir="column"
-        bg="#F8F8F8"
+        // bg="#F8F8F8"
         w="100%"
-        borderRadius="lg"
+        borderRadius="md"
         overflowY="hidden"
       >
         {chats ? (
           <Stack overflowY="scroll">
             {chats.map((chat) => (
-              <Box
-                onClick={() => {
-                  setSelectedChat(chat);
-                }}
-                cursor="pointer"
-                bg={selectedChat === chat ? "green.300" : "#E8E8E8"}
-                color={selectedChat === chat ? "white" : " black"}
-                fontWeight={selectedChat === chat ? "bold" : "medium"}
-                px={3}
-                py={2}
-                borderRadius="lg"
-                key={chat._id}
-              >
-                <Text>
-                  {!chat.isGroupChat
-                    ? getSender(loggedUser, chat.users)
-                    : chat.chatName}
-                </Text>
-              </Box>
+              <>
+                <Box
+                  onClick={() => {
+                    setSelectedChat(chat);
+                  }}
+                  cursor="pointer"
+                  bg={selectedChat === chat ? "green.300" : "transparent"}
+                  color={selectedChat === chat ? "white" : " black"}
+                  fontWeight={selectedChat === chat ? "bold" : "medium"}
+                  px={3}
+                  py={4}
+                  borderRadius="md"
+                  w="100%"
+                  key={chat._id}
+                  display="flex"
+                  alignItems="center"
+                >
+                  <Avatar
+                    name={
+                      !chat.isGroupChat
+                        ? getSender(loggedUser, chat.users)
+                        : chat.chatName
+                    }
+                    src={
+                      !chat.isGroupChat
+                        ? getSenderPic(loggedUser, chat.users)
+                        : chat.chatName
+                    }
+                  ></Avatar>
+                  <Text mx={3}>
+                    {!chat.isGroupChat
+                      ? getSender(loggedUser, chat.users)
+                      : chat.chatName}
+                  </Text>
+                </Box>
+                <Divider orientation="horizontal" />
+              </>
             ))}
           </Stack>
         ) : (

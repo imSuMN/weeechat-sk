@@ -4,6 +4,7 @@ import {
   Box,
   FormControl,
   IconButton,
+  Image,
   Input,
   Spinner,
   Text,
@@ -17,11 +18,10 @@ import ProfileModal from "./miscellaneous/ProfileModal";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import ScrollableChat from "./ScrollableChat";
 import io from "socket.io-client";
-
 import animationData1 from "../animations/typing1.json";
 import Lottie from "lottie-react";
 
-const ENDPOINT = "https://weeechat-sk.herokuapp.com";
+const ENDPOINT = "http://localhost:5000";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -100,7 +100,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           },
           config
         );
-        console.log(data);
+        // console.log(data);
         socket.emit("new message", data);
         setMessages([...messages, data]);
       } catch (error) {
@@ -128,7 +128,6 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
   useEffect(() => {
     fetchMessages();
-
     selectedChatCompare = selectedChat;
     // eslint-disable-next-line
   }, [selectedChat]);
@@ -210,7 +209,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             display="flex"
             flexDir="column"
             justifyContent="flex-end"
-            bg="green.300"
+            bg="white"
             p={3}
             w="100% "
             h="100%"
@@ -250,6 +249,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             >
               <Input
                 variant="filled"
+                focusBorderColor="lime"
+                borderColor="gray.300"
                 placeholder="Enter a message ...."
                 bg="white"
                 autoComplete="off"
@@ -266,9 +267,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           alignItems="center"
           justifyContent="center"
           h="100%"
+          flexDirection="column"
         >
+          <Image src="chatHome.svg" alt="Conversation PIC" height="400px" width="400px" />
+
           <Text fontSize="3xl" pb={3} fontFamily="Work sans">
-            Click on a user to start Chatting
+            Click on a user to start chatting
           </Text>
         </Box>
       )}

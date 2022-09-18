@@ -1,5 +1,6 @@
 import { ViewIcon } from "@chakra-ui/icons";
 import {
+  Box,
   Button,
   IconButton,
   Image,
@@ -31,9 +32,9 @@ const ProfileModal = ({ user, children }) => {
       )}
       <Modal size="lg" isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
-        <ModalContent h="410px">
+        <ModalContent h="400px">
           <ModalHeader
-            fontSize="40px"
+            fontSize="35px"
             fontFamily="Work sans"
             display="flex"
             justifyContent="center"
@@ -49,12 +50,15 @@ const ProfileModal = ({ user, children }) => {
           >
             <Image
               borderRadius="full"
-              boxSize="130px"
+              borderColor="lime"
+              className="border-4"
+              boxSize="150px"
               src={user.pic}
               alt={user.name}
             />
+
             <Text
-              fontSize={{ base: "28px", md: "30px" }}
+              fontSize={{ base: "24px", md: "28px" }}
               fontFamily="Work sans"
             >
               Email : {user.email}
@@ -62,7 +66,7 @@ const ProfileModal = ({ user, children }) => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="green" mr={3} onClick={onClose}>
+            <Button colorScheme="green" m="auto" onClick={onClose}>
               Close
             </Button>
           </ModalFooter>
