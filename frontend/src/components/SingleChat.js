@@ -21,7 +21,8 @@ import io from "socket.io-client";
 import animationData1 from "../animations/typing1.json";
 import Lottie from "lottie-react";
 
-const ENDPOINT = "https://sweechat.herokuapp.com";
+const ENDPOINT ="ws://sweechat.herokuapp.com/socket.io/?EIO=4&transport=websocket";
+
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -34,14 +35,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const toast = useToast();
   const { user, selectedChat, setSelectedChat, notification, setNotification } =
     ChatState();
-  // const defaultOptions = {
-  //   loop: true,
-  //   autoplay: true,
-  //   animationData: animationData,
-  //   rendererSettings: {
-  //     preserveAspectRatio: "xMidYMid slice",
-  //   },
-  // };
+
   const style = {
     height: 50,
     width: 70,
