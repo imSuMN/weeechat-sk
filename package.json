@@ -1,5 +1,5 @@
 {
-  "name": "chat-app",
+  "name": "weeechat-sk",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,9 +9,9 @@
   },
   "keywords": [
     "mern",
-    "chat-app"
+    "weeechat"
   ],
-  "author": "Piyush Agarwal",
+  "author": "Suman Kumar",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
