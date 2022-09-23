@@ -15,7 +15,7 @@ Uses Socket.io for real time communication and stores user details in encrypted 
 
 https://weeechat-sk.herokuapp.com/
 
-![](https://github.com/imSuMN/weeechat-sk/screenshots/chatpage.png)
+![]([https://github.com/imSuMN/weeechat-sk/screenshots/chatpage.png](https://github.com/imSuMN/weeechat-sk/blob/master/screenshots/chatpage.png))
 ## Run Locally
 
 Clone the project
