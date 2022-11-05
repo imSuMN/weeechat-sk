@@ -65,7 +65,7 @@ Start the Client
 ### One to One chat
 ![](https://github.com/piyush-eon/mern-chat-app/blob/master/screenshots/mainscreen.PNG)
 ### Search Users
-![](https://github.com/imSuMN/weeechat-sk/tree/master/screenshots/searchuser.PNG)
+![]([https://github.com/imSuMN/weeechat-sk/tree/master/screenshots/searchuser.PNG](https://github.com/imSuMN/weeechat-sk/blob/master/screenshots/searchuser.png))
 ### Create Group Chats
 ![](https://github.com/piyush-eon/mern-chat-app/blob/master/screenshots/new%20grp.PNG)
 ### Notifications 
