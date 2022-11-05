@@ -63,7 +63,7 @@ Start the Client
 ### Real Time Chatting with Typing indicators
 ![](https://github.com/piyush-eon/mern-chat-app/blob/master/screenshots/real-time.PNG)
 ### One to One chat
-![](https://github.com/piyush-eon/mern-chat-app/blob/master/screenshots/mainscreen.PNG)
+![](https://github.com/imSuMN/weeechat-sk/blob/master/screenshots/chatpage.png)
 ### Search Users
 ![](https://github.com/imSuMN/weeechat-sk/blob/master/screenshots/searchuser.png))
 ### Create Group Chats
