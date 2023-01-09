@@ -59,7 +59,7 @@ const Login = () => {
       });
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
-      history.push("https://weechat-backend.vercel.app/chats");
+      history.push("/chats");
       
     } catch (error) {
       toast({
