@@ -101,7 +101,7 @@ const SignUp = () => {
         },
       };
       const { data } = await axios.post(
-        "https://weeechat-sk.vercel.app/api/user",
+        "https://weechat-backend.vercel.app/api/user",
         {
           name,
           email,
