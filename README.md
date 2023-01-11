@@ -13,7 +13,7 @@ Uses Socket.io for real time communication and stores user details in encrypted 
   
 ## Demo
 
-https://weeechat-sk.herokuapp.com/
+https://weeechat-sk.vercel.app/
 
 ![]([https://github.com/imSuMN/weeechat-sk/screenshots/chatpage.png](https://github.com/imSuMN/weeechat-sk/blob/master/screenshots/chatpage.png))
 ## Run Locally
