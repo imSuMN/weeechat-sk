@@ -46,7 +46,10 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.get(`https://weechat-backend.vercel.app/api/user?search=${search}`, config);
+      const { data } = await axios.get(
+        `https://chat-backend-flax.vercel.app/api/user?search=${search}`,
+        config
+      );
       console.log(data);
       setLoading(false);
       setSearchResult(data);
@@ -74,7 +77,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.put(
-        `https://weechat-backend.vercel.app/api/chat/rename`,
+        `https://chat-backend-flax.vercel.app/chat/rename`,
         {
           chatId: selectedChat._id,
           chatName: groupChatName,
@@ -132,7 +135,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.put(
-        `https://weechat-backend.vercel.app/api/chat/groupadd`,
+        `https://chat-backend-flax.vercel.app/api/chat/groupadd`,
         {
           chatId: selectedChat._id,
           userId: user1._id,
@@ -178,7 +181,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.put(
-        `https://weechat-backend.vercel.app/api/chat/groupremove`,
+        `https://chat-backend-flax.vercel.app/api/chat/groupremove`,
         {
           chatId: selectedChat._id,
           userId: user1._id,

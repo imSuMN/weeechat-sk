@@ -45,7 +45,7 @@ const Login = () => {
       };
 
       const { data } = await axios.post(
-        "https://weechat-backend.vercel.app/api/user/login",
+        "https://chat-backend-flax.vercel.app/api/user/login",
         { email, password },
         config
       );
@@ -60,7 +60,6 @@ const Login = () => {
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
       history.push("/chats");
-      
     } catch (error) {
       toast({
         title: "Error Occured!",

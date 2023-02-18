@@ -21,7 +21,7 @@ import io from "socket.io-client";
 import animationData1 from "../animations/typing1.json";
 import Lottie from "lottie-react";
 
-const ENDPOINT = "https://weechat-backend.vercel.app/";
+const ENDPOINT = "https://chat-backend-flax.vercel.app/";
 
 var socket, selectedChatCompare;
 
@@ -56,7 +56,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `https://weechat-backend.vercel.app/api/message/${selectedChat._id}`,
+        `https://chat-backend-flax.vercel.app/api/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -87,7 +87,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
         setNewMessage("");
         const { data } = await axios.post(
-          "https://weechat-backend.vercel.app/api/message",
+          "https://chat-backend-flax.vercel.app/api/message",
           {
             content: newMessage,
             chatId: selectedChat,

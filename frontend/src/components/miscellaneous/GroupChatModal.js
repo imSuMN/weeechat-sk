@@ -56,7 +56,10 @@ const GroupChatModal = ({ children }) => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.get(`https://weechat-backend.vercel.app/api/user?search=${search}`, config);
+      const { data } = await axios.get(
+        `https://chat-backend-flax.vercel.app/api/user?search=${search}`,
+        config
+      );
 
       setLoading(false);
       setSearchResult(data);
@@ -94,7 +97,7 @@ const GroupChatModal = ({ children }) => {
         },
       };
       const { data } = await axios.post(
-        `https://weechat-backend.vercel.app/api/chat/group`,
+        `https://chat-backend-flax.vercel.app/api/chat/group`,
         {
           name: groupChatName,
           users: JSON.stringify(selectedUsers.map((u) => u._id)),

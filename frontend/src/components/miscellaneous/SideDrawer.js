@@ -73,7 +73,10 @@ const SideDrawer = () => {
         },
       };
 
-      const { data } = await axios.get(`https://weechat-backend.vercel.app/api/user?search=${search}`, config);
+      const { data } = await axios.get(
+        `https://chat-backend-flax.vercel.app/api/user?search=${search}`,
+        config
+      );
       setLoading(false);
       setSearchResult(data);
     } catch (error) {
@@ -97,7 +100,11 @@ const SideDrawer = () => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.post("https://weechat-backend.vercel.app/api/chat", { userId }, config);
+      const { data } = await axios.post(
+        "https://chat-backend-flax.vercel.app/api/chat",
+        { userId },
+        config
+      );
 
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
 

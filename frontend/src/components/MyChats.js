@@ -30,7 +30,10 @@ const MyChats = ({ fetchAgain }) => {
         },
       };
 
-      const { data } = await axios.get("https://weechat-backend.vercel.app/api/chat", config);
+      const { data } = await axios.get(
+        "https://chat-backend-flax.vercel.app/api/chat",
+        config
+      );
 
       setChats(data);
     } catch (error) {
